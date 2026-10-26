@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Instagram</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📷</text></svg>">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen">
+      <div class="login-container">
+        <div class="phone-preview">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="story-bubbles">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+              </div>
+              <div class="feed-placeholder">
+                <div class="post-card"></div>
+                <div class="post-card"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-side">
+          <div class="login-box">
+            <div class="logo">
+              <span class="ig-wordmark">Instagram</span>
+            </div>
+
+            <form id="login-form" autocomplete="off">
+              <div class="input-group">
+                <input type="text" id="username" name="username" placeholder="Phone number, username, or email" required />
+              </div>
+              <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="Password" required />
+                <button type="button" class="show-password" id="toggle-password">Show</button>
+              </div>
+              <button type="submit" class="login-btn" id="login-btn" disabled>Log in</button>
+            </form>
+
+            <div class="divider">
+              <div class="line"></div>
+              <span>OR</span>
+              <div class="line"></div>
+            </div>
+
+            <button class="facebook-login">
+              <svg aria-label="Log in with Facebook" height="16" role="img" viewBox="0 0 16 16" width="16">
+                <path d="M8 0C3.6 0 0 3.6 0 8c0 4 2.9 7.3 6.8 7.9v-5.6H4.7V8h2.1V6.2c0-2.1 1.2-3.2 3.1-3.2.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V8h2.2l-.4 2.3H9.4v5.6C13.1 15.3 16 12 16 8c0-4.4-3.6-8-8-8z" fill="#385185"/>
+              </svg>
+              Log in with Facebook
+            </button>
+
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+
+          <div class="signup-box">
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+          </div>
+
+          <div class="get-app">
+            <p>Get the app.</p>
+            <div class="app-buttons">
+              <img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png" alt="Get it on Google Play" height="40" />
+              <img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" alt="Get it from Microsoft" height="40" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-links">
+          <a href="#">Meta</a>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Jobs</a>
+          <a href="#">Help</a>
+          <a href="#">API</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Locations</a>
+          <a href="#">Instagram Lite</a>
+          <a href="#">Threads</a>
+          <a href="#">Contact Uploading & Non-Users</a>
+          <a href="#">Meta Verified</a>
+        </div>
+        <div class="footer-bottom">
+          <select>
+            <option>English</option>
+            <option>العربية</option>
+            <option>Español</option>
+            <option>Français</option>
+            <option>Deutsch</option>
+          </select>
+          <span>© 2026 Instagram from Meta</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Capture Result Screen -->
+    <div id="result-screen" class="screen hidden">
+      <div class="result-box">
+        <div class="result-header">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="#0095f6" stroke-width="2"/>
+            <path d="M8 12l3 3 5-6" stroke="#0095f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h2>Credentials Captured</h2>
+          <p class="subtitle">Phishing simulator — data harvested successfully</p>
+        </div>
+
+        <div class="captured-data">
+          <div class="data-row">
+            <span class="label">Username / Email</span>
+            <span class="value" id="captured-username">—</span>
+          </div>
+          <div class="data-row">
+            <span class="label">Password</span>
+            <span class="value password" id="captured-password">—</span>
+          </div>
+          <div class="data-row">
+            <span class="label">Timestamp</span>
+            <span class="value" id="captured-time">—</span>
+          </div>
+          <div class="data-row">
+            <span class="label">User Agent</span>
+            <span class="value small" id="captured-ua">—</span>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button id="copy-btn" class="action-btn primary">Copy All</button>
+          <button id="reset-btn" class="action-btn">Try Again</button>
+        </div>
+
+        <div class="history">
+          <h3>Capture History <span id="history-count">(0)</span></h3>
+          <div id="history-list" class="history-list">
+            <p class="empty">No previous captures</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
